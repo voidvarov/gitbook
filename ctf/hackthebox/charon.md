@@ -14,7 +14,7 @@ PORT   STATE SERVICE
 Visiting the website I find a yogurt website with a __"powered by: supercms"__ at the bottom
 
 
-![](.gitbook/assets/htb/charon/yogurt_site.png)
+![](img/htb/charon/yogurt_site.png)
 
 
 fuzzing for directories I find a cmsdata folder
@@ -53,19 +53,19 @@ upload.php              [Status: 302, Size: 0, Words: 1, Lines: 1, Duration: 116
 In login.php I try to login with different credentials and trying sql injections but the only thing that changes is the url parameter to err=1 "http://10.10.10.31/cmsdata/login.php?err=1"
 
 
-![](.gitbook/assets/htb/charon/login_php.png)
+![](img/htb/charon/login_php.png)
 
 
 Proceed to click on forgot password, testing for a SQLI results in a message saying "Error In Database"
 
 
-![](.gitbook/assets/htb/charon/error_in_database_1.png)
+![](img/htb/charon/error_in_database_1.png)
 
 
 I will be sending the requests throught cURL so I grab the parameter names which are "email" and "submit"
 
 
-![](.gitbook/assets/htb/charon/parameters_1.png)
+![](img/htb/charon/parameters_1.png)
 
 
 #### retrieving valid emails
@@ -147,7 +147,7 @@ decoder:5f4dcc3b5aa765d61d8327deb882cf99:decoder@nowhere.com
 
 The hashes are cracked with crackstation
 
-![](.gitbook/assets/htb/charon/crackstation_1.png)
+![](img/htb/charon/crackstation_1.png)
 
 ## shell as www-data
 
@@ -156,79 +156,79 @@ The hashes are cracked with crackstation
 logging with the credentials super_cms_adm:tamarro shows the following panel
 
 
-![](.gitbook/assets/htb/charon/supercms_1.png)
+![](img/htb/charon/supercms_1.png)
 
 
 I click on __Upload_Image_FIle__ which shows the following
 
 
-![](.gitbook/assets/htb/charon/upload_image_1.png)
+![](img/htb/charon/upload_image_1.png)
 
 
 Trying to upload a webshell results in an error of invalid extension
 
 
-![](.gitbook/assets/htb/charon/error_1.png)
+![](img/htb/charon/error_1.png)
 
 If the request is intercepted with burpsuite and replace a legitimate image with a webshell the result is another error saying that it requires a valid image or gif extension 
 
 
-![](.gitbook/assets/htb/charon/error_2.png)
+![](img/htb/charon/error_2.png)
 
 Inspecting the site I find a hidden parameter
 
 
-![](.gitbook/assets/htb/charon/hidden_1.png)
+![](img/htb/charon/hidden_1.png)
 
 
 To uncomment that field I first reload the site while intercepting the request, once the request is intercept I do __right click > do intercept > response to this request__ and I uncomment the field on the new response
 
 
-![](.gitbook/assets/htb/charon/uncommenting.png)
+![](img/htb/charon/uncommenting.png)
 
 remove the hidden type from the input
 
 
-![](.gitbook/assets/htb/charon/uncommenting_2.png)
+![](img/htb/charon/uncommenting_2.png)
 
 decode the field name 
 
-![](.gitbook/assets/htb/charon/field_name_1.png)
+![](img/htb/charon/field_name_1.png)
 
 
 
-![](.gitbook/assets/htb/charon/field_name_2.png)
+![](img/htb/charon/field_name_2.png)
 
 
 another field appears in the website 
 
 
-![](.gitbook/assets/htb/charon/new_field.png)
+![](img/htb/charon/new_field.png)
 
 this field allows to change the filename of the uploaded file
 
 
-![](.gitbook/assets/htb/charon/field_1.png)
+![](img/htb/charon/field_1.png)
 
 to exploit this first I upload an image with a filename shell.php
 
 
-![](.gitbook/assets/htb/charon/upload_1.png)
+![](img/htb/charon/upload_1.png)
 
 I change the file content to a webshell
 
 
-![](.gitbook/assets/htb/charon/upload_2.png)
+![](img/htb/charon/upload_2.png)
 
 a success message confirms the upload
 
 
-![](.gitbook/assets/htb/charon/upload_3.png)
+![](img/htb/charon/upload_3.png)
 
 and I'm able to execute commands remotely
 
 
-![](.gitbook/assets/htb/charon/command_1.png)
+![](img/htb/charon/command_1.png)
 
 sending a request to the webshell allows me to get a reverse shell
 
