@@ -12,7 +12,7 @@ InfoSec Technical Reference | Blue & Red Team Playbooks, CTF Solution Documentat
 
 **Profile:** Computer Engineering Undergraduate | eCPPT Certified Professional | Active CTF Participant and Security Researcher
 
-**Origin of the Alias –&#x20;**_**xffsec**_ While researching buffer overflows, the byte `\xff` emerged as a consistent marker in fuzzing and payloads. Its visual form, `xff`, stood out and merged with academic use of _x_ as the unknown this value—visually striking as `xff`—became a consistent sentinel in payloads, log verification, and variable naming (e.g., `x` in `<?php system($_GET['x']); ?>` ). Combined with _sec_ for security, the alias represents: **x = unknown, ff = boundary, sec = security.** \
+**Origin of the Alias –&#x20;**_**xffsec**_ While researching buffer overflows, the byte `\xff` emerged as a consistent marker in fuzzing and payloads. Its visual form, `xff`, stood out and merged with academic use of _x_ as the unknown this value "xff" became a consistent sentinel in payloads, log verification, and variable naming (e.g., `x` in `<?php system($_GET['x']); ?>` ). Combined with _sec_ for security, the alias represents: **x = unknown, ff = boundary, sec = security.** \
 Used across reports, CTFs, and professional work. (Pronounced _ef-sec_, _ex-ef-sec_, or simply _x_.)
 
 ### about this gitbook
