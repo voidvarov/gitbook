@@ -5,4 +5,13 @@
 ## CTF
 
 * [Hackthebox](ctf/hackthebox/README.md)
-  * [X](ctf/hackthebox/x.md)
+  * [bastard](ctf/hackthebox/bastard.md)
+  * [blue](ctf/hackthebox/blue.md)
+  * [buff](ctf/hackthebox/buff.md)
+  * [charon](ctf/hackthebox/charon.md)
+  * [forest](ctf/hackthebox/forest.md)
+  * [hospital](ctf/hackthebox/hospital.md)
+  * [reddish](ctf/hackthebox/reddish.md)
+
+
+* [Dockerlabs](ctf/dockerlabs/README.md)
