@@ -17,3 +17,8 @@
 * [Vulnhub](ctf/vulnhub/README.md)
   * [game-of-thrones](ctf/vulnhub/game-of-thrones.md)
 
+## OVERTHEWIRE
+
+* [Bandit](overthewire/bandit/README.md)
+* [Natas](overthewire/natas/README.md)
+
