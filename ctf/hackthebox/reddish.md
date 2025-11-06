@@ -1,3 +1,7 @@
+---
+icon: flag
+---
+
 # Reddish
 
 Reddish provides an excellent platform for honing pivoting skills, encompassing a diverse range of scenarios. These scenarios include addressing a node-red misconfiguration, exploiting a misconfigured Redis instance to gain a webshell, using rsync manipulation to inject into a cronjob for a reverse shell, and exploiting a misconfiguration enabling an attacker to mount the entire root filesystem on any location. Additionally, reddish offers opportunities for advanced pivoting techniques such as port forwarding using chisel and tunnel creation with socat.
@@ -113,13 +117,15 @@ ping sweep script
 #!/bin/bash
 
 if [ -z "$1" ]; then
-  echo -e "Provide the first 3 octets of the network to scan\nusage: $0 192.168.56"
+  echo -e "Provide the first 3 octets of the network to scan
+usage: $0 192.168.56"
 else
   network="$1"
-  echo -e "\n--- SCAN ON HOST $network.(1..255) ---"
+  echo -e "
+--- SCAN ON HOST $network.(1..255) ---"
   for host in {1..255}; do
   ( 
-  ping -c 1 -w 1 $network.$host >/dev/null 2>&1 && echo -e "\t[+] Active Host $network.$host" 
+  ping -c 1 -w 1 $network.$host >/dev/null 2>&1 && echo -e "	[+] Active Host $network.$host" 
   ) &
   done
   wait
@@ -141,7 +147,8 @@ The second option is using a [function that will act as curl](https://unix.stack
 function __curl() {
   read -r proto server path <<<"$(printf '%s' "${1//// }")"
   if [ "$proto" != "http:" ]; then
-    printf >&2 "sorry, %s supports only http\n" "${FUNCNAME[0]}"
+    printf >&2 "sorry, %s supports only http
+" "${FUNCNAME[0]}"
     return 1
   fi
   DOC=/${path// //}
@@ -150,9 +157,12 @@ function __curl() {
   [ "${HOST}" = "${PORT}" ] && PORT=80
 
   exec 3<>"/dev/tcp/${HOST}/$PORT"
-  printf 'GET %s HTTP/1.0\r\nHost: %s\r\n\r\n' "${DOC}" "${HOST}" >&3
+  printf 'GET %s HTTP/1.0
+Host: %s
+
+' "${DOC}" "${HOST}" >&3
   (while read -r line; do
-   [ "$line" = $'\r' ] && break
+   [ "$line" = $'' ] && break
   done && cat) <&3
   exec 3>&-
 }

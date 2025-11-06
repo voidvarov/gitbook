@@ -1,3 +1,6 @@
+---
+icon: flag
+---
 
 # Hospital
 
@@ -310,7 +313,7 @@ A reverse shell connection is established, granting the attacker access to the v
 
 ![ps shell received](/img/htb/hospital/recv_ps_shell_1.png)
 
-The user flag is at __C:\Users\drbrown.HOSPITAL\Desktop__
+The user flag is at __C: sers\drbrown.HOSPITAL\Desktop__
 
 ![shell as drbrown](/img/htb/hospital/whoami_drbrown_1.png)
 
@@ -318,7 +321,8 @@ The user flag is at __C:\Users\drbrown.HOSPITAL\Desktop__
  
 ### solution 1 (XAMPP misconfiguration)
 
-Go to C:\xampp\htdocs and upload the [p0wny-shell](https://github.com/flozz/p0wny-shell) there.
+Go to C:
+mpp\htdocs and upload the [p0wny-shell](https://github.com/flozz/p0wny-shell) there.
 
 serving the p0wny shell 
 
@@ -353,4 +357,3 @@ Here the password can be retrieved in cleartext by just changing the input type 
 The credentials successfully authenticate with evil-winrm, granting admin access to the victim machine.
 
 ![winrm as admin](/img/htb/hospital/winrm_as_admin.png)
-

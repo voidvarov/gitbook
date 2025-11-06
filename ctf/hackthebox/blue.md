@@ -1,3 +1,7 @@
+---
+icon: flag
+---
+
 # Blue
 
 ## Enumeration
@@ -101,4 +105,3 @@ C:\Windows\system32>whoami
 whoami
 nt authority\system
 ```
-

